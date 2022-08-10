@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_10_085118) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_10_090234) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.integer "phone"
+    t.string "email"
+    t.string "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "equipment", force: :cascade do |t|
     t.string "serial"
@@ -27,6 +36,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_10_085118) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["serial"], name: "index_equipment_on_serial", unique: true
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "postal"
+    t.string "country"
+    t.integer "phone"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
