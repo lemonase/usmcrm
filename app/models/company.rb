@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  belongs_to :contact
-  belongs_to :location
-  belongs_to :equipment
+  has_many :contact
+  has_many :location
+  has_many :equipment
 end
